@@ -28,7 +28,7 @@ const routes = (req, res) => {
         <head><title>Assignment 1</title></head>
         <body>
       `);
-      res.write('<h2>List of User</h2>');
+      res.write('<h2>List of Users</h2>');
       res.write('<ul>');
       for (let user of users) {
         if (user) res.write(`<li>${user}</li>`);
