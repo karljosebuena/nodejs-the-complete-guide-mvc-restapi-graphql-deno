@@ -10,7 +10,7 @@ const routes = (req, res) => {
   if (url === '/users' && method === 'GET') {
     fs.readFile(FILE_NAME, 'utf8', function (err, data) {
       if (err && err.errno === -2) {
-        res.writeHeader(204, { "Content-Type": "text/html" });
+        res.writeHeader(200, { "Content-Type": "text/html" });
         res.write(`<h2>${FILE_NAME} does not exist</h2>`);
         res.write(`<a href="${HOST}">Back to Homepage</a>`);
         return res.end();
@@ -23,6 +23,11 @@ const routes = (req, res) => {
         .replace(/\r\n/g, '\n').split('\n');
 
       res.writeHeader(200, { "Content-Type": "text/html" });
+      res.write(`
+        <html>
+        <head><title>Assignment 1</title></head>
+        <body>
+      `);
       res.write('<h2>List of User</h2>');
       res.write('<ul>');
       for (let user of users) {
@@ -30,6 +35,10 @@ const routes = (req, res) => {
       }
       res.write('</ul>');
       res.write(`<a href="${HOST}">Back to Homepage</a>`);
+      res.write(`
+        </body>
+        </html>
+      `);
       return res.end();
     });
   } else if (url === '/create-user' && method === 'POST') {
@@ -50,18 +59,23 @@ const routes = (req, res) => {
       });
     });
   } else {
+    res.writeHeader(200, { "Content-Type": "text/html" });
     res.write(`
-    <h1>Hello there!</h1>
-    <p>Let's create new user :)</p>
-    <form action="/create-user" method="POST">
-      <input type="text" name="user" />
-      <button type="submit">Create</button>
-    </form>
-    <p>or, <a href="${HOST}/users">View users list</a></p>
-  `);
+      <html>
+        <head><title>Assignment 1</title></head>
+        <body>
+        <h1>Hello there!</h1>
+        <p>Let's create new user :)</p>
+        <form action="/create-user" method="POST">
+          <input type="text" name="user" />
+          <button type="submit">Create</button>
+        </form>
+        <p>or, <a href="${HOST}/users">View users list</a></p>
+        </body>
+      </html>
+    `);
     return res.end();
   }
-
 }
 
 module.exports = routes;
