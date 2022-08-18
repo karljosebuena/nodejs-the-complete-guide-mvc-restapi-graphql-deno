@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body > h1 {
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+body > form > input {
+  outline: none;
+  height: 22px;
+  width: 200px;
+}
+
+body > form > button {
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: cadetblue;
+  border: none;
+  padding: 7px;
+  width: 63px;
+}
+
+body > form > button:hover {
+  background-color: rgb(109, 179, 182);
+}
