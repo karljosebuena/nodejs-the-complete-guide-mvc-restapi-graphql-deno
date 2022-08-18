@@ -10,7 +10,7 @@ const PORT = 3000;
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(rootDir, 'public')))
 
 app.use('/admin', AdminRouter);
 app.use('/shop', ShopRouter);
