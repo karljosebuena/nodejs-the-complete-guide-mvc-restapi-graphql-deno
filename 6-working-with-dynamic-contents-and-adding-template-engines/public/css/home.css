@@ -1,0 +1,26 @@
+.create-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-user > form > input {
+  outline: none;
+  height: 22px;
+  width: 200px;
+}
+
+.create-user > form > button {
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: cadetblue;
+  border: none;
+  padding: 7px;
+  width: 63px;
+}
+
+.create-user > form > button:hover {
+  background-color: rgb(109, 179, 182);
+}

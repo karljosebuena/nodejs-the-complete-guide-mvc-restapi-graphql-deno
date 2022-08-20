@@ -1,0 +1,20 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="css/main.css" />
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+
+    <div>
+      <% if (users.length) {%>
+        <h1>List of Users</h1>
+        <ul>
+          <% for (let user of users) {%>
+            <li><%= user %></li>
+          <% } %>
+      <% } else { %>
+        <h2>No users found</h2>
+      <% } %>
+      </ul>
+    </div>
+<%- include('includes/end.ejs') %>
