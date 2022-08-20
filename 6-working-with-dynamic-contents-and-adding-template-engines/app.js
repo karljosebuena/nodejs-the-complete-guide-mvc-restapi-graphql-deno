@@ -22,7 +22,7 @@ app.use('/users', UsersRouter);
 
 app.use('/', (req, res, next) => {
   res
-    .status(200)
+    .status(404)
     .render('404', {
       pageTitle: 'Error 404',
     });
